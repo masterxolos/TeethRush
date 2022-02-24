@@ -69,6 +69,7 @@ public class Collector : MonoBehaviour
             }
         }
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("damakTrigger"))
