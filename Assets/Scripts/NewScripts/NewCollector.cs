@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.WebSockets;
+using DG.Tweening;
 using UnityEngine;
 
 public class NewCollector : MonoBehaviour
@@ -23,7 +24,8 @@ public class NewCollector : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Tooth"))
         {
-            other.gameObject.transform.position = new Vector3(transform.position.x,transform.position.y- 0.13049f, transform.position.z-10f);
+            other.gameObject.transform.position = new Vector3(transform.position.x, transform.position.y - 0.13049f,
+                transform.position.z - 10f);
             Destroy(gameObject.GetComponent<NewCollector>());
             other.gameObject.AddComponent<NewCollector>();
             other.gameObject.GetComponent<BoxCollider>().isTrigger = false;
@@ -32,7 +34,7 @@ public class NewCollector : MonoBehaviour
             other.gameObject.GetComponent<NodeMovement>().connectedNode = transform;
             _manager.teeth[_manager.count] = other.gameObject;
             _manager.count++;
-            
+
             other.gameObject.tag = "CollectedTeeth";
         }
 
@@ -40,8 +42,13 @@ public class NewCollector : MonoBehaviour
         {
             _manager.count--;
             _manager.teeth[_manager.count] = null;
-            _manager.teeth[_manager.count-1].gameObject.AddComponent<NewCollector>();
+            _manager.teeth[_manager.count - 1].gameObject.AddComponent<NewCollector>();
             Destroy(gameObject);
+        }
+
+        else if (other.gameObject.CompareTag("damakTrigger"))
+        {
+            StartCoroutine(_manager.Jump());
         }
     }
 }
