@@ -37,6 +37,6 @@ public class MoveCamDoTween : MonoBehaviour
         yield return new WaitForSeconds(1);
         camTransform.DOLocalMove(new Vector3(1.2f, 12.17f, 9.9f), 0.5f);
         camTransform.DORotate(new Vector3(22.04f, 0, 0), 0.5f);
-        collectedThoot.GetComponent<Movement>().enabled = true;
+        //collectedThoot.GetComponent<NewMovement>().enabled = true;
     }
 }
