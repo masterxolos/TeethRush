@@ -21,22 +21,34 @@ public class MoveCamDoTween : MonoBehaviour
         {
             StopCoroutine(ShowTongue());
             Debug.Log("Çarpıştı");
-            camTransform.DOLocalMove(new Vector3(1.2f, 11.58f, -11.13f), 1);
+
+            StartCoroutine(StopCam());
+
             //collected.DOScale(0.08f, 0);
 //            collected.localPosition = new Vector3(0.53f, -9.494f, -13.936f);
             //collected.localScale = new Vector3(0.8f, 0.8f, 0.8f);
-            
+
             //collected.DOLocalMove(new Vector3(-1.25f, -9.38f, 0), 0);
-            
-            camTransform.DORotate(new Vector3(1.72f, 0, 0),1);
+
+
         }
     }
 
     private IEnumerator ShowTongue()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.7f);
         camTransform.DOLocalMove(new Vector3(1.2f, 12.17f, 9.9f), 0.5f);
         camTransform.DORotate(new Vector3(22.04f, 0, 0), 0.5f);
         //collectedThoot.GetComponent<NewMovement>().enabled = true;
+    }
+
+    private IEnumerator StopCam()
+    {
+        camTransform.DOLocalMove(new Vector3(1.2f, 11.58f, -11.13f), 1);
+        camTransform.DORotate(new Vector3(1.72f, 0, 0),1);
+        
+        yield return new WaitForSeconds(1);
+        
+        collectedThoot.GetComponent<NewMovement>().enabled = false;
     }
 }

@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using DG.Tweening;
-using Tabtale.TTPlugins;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -47,12 +46,7 @@ public class Collector : MonoBehaviour
     {
 
     }
-    private void Awake()
-    {
-        // Initialize CLIK Plugin
-        TTPCore.Setup();
-        // Your code here
-    }
+    
     
     private void OnCollisionEnter(Collision other)
     {
