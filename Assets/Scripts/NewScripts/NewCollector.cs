@@ -43,6 +43,7 @@ public class NewCollector : MonoBehaviour
             _manager.count--;
             _manager.teeth[_manager.count] = null;
             _manager.teeth[_manager.count - 1].gameObject.AddComponent<NewCollector>();
+            //todo particle eklemek için Instantiate(_manager.teeth[_manager.count].transform.position, particle) gibi bişi olcak yaparsın sen
             Destroy(gameObject);
         }
 
