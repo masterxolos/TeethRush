@@ -121244,6 +121244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _manager: {fileID: 0}
+  particle: {fileID: 7705573454163401145, guid: 140e557a70ff73f46b6f62c6aacbe02c,
+    type: 3}
 --- !u!114 &919132148467417706
 MonoBehaviour:
   m_ObjectHideFlags: 0

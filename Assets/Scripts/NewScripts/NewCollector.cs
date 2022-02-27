@@ -8,6 +8,8 @@ using UnityEngine;
 public class NewCollector : MonoBehaviour
 {
     [SerializeField] private ToothManager _manager;
+
+    [SerializeField] private GameObject particle;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,11 +42,14 @@ public class NewCollector : MonoBehaviour
 
         else if (other.gameObject.CompareTag("Obstacle"))
         {
+            
             _manager.count--;
             _manager.teeth[_manager.count] = null;
             _manager.teeth[_manager.count - 1].gameObject.AddComponent<NewCollector>();
-            //todo particle eklemek için Instantiate(_manager.teeth[_manager.count].transform.position, particle) gibi bişi olcak yaparsın sen
             Destroy(gameObject);
+            Instantiate(Resources.Load("badParticle", typeof(GameObject)),
+                other.gameObject.GetComponent<Collider>().ClosestPointOnBounds(transform.position), 
+                Quaternion.identity);
         }
 
         else if (other.gameObject.CompareTag("damakTrigger"))
