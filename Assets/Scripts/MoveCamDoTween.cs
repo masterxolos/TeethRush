@@ -36,7 +36,7 @@ public class MoveCamDoTween : MonoBehaviour
 
     private IEnumerator ShowTongue()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         camTransform.DOLocalMove(new Vector3(1.2f, 12.17f, 9.9f), 0.5f);
         camTransform.DORotate(new Vector3(22.04f, 0, 0), 0.5f);
         //collectedThoot.GetComponent<NewMovement>().enabled = true;
